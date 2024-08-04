@@ -1,0 +1,26 @@
+let intputBx = document.querySelector('#inputBx');
+let list = document.querySelector('#list');
+
+intputBx.addEventListener("keyup" , function(event){
+    if(event.key == "Enter") {
+        addItem(this.value)
+        this.value = ""
+
+    }
+})
+
+let addItem = (intputBx) => {
+    let listItem =document.createElement("li");
+    listItem.innerHTML= `${intputBx}<i></i>`;
+
+    listItem.addEventListener("click" ,function(){
+    this.classList.toggle('done');
+     })
+
+    listItem.querySelector("i").addEventListener("click" ,function(){
+        listItem.remove();
+    }) 
+ 
+
+    list.appendChild(listItem);
+}
